@@ -1,5 +1,85 @@
+# ================================
+# Node.js
+# ================================
 node_modules/
-.env
-.DS_Store
 npm-debug.log*
-/src/generated/prisma
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+
+# ================================
+# Environment variables / Secrets
+# ================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Keep example environment files
+!.env.example
+
+# ================================
+# Prisma
+# ================================
+# Generated Prisma Client
+/src/generated/prisma/
+
+# Prisma local/dev artifacts
+prisma/.tmp/
+
+# ================================
+# Logs
+# ================================
+logs/
+*.log
+
+# ================================
+# OS files
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# IDE / Editors
+# ================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+.idea/
+*.iml
+
+# ================================
+# Temporary files
+# ================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ================================
+# Coverage / Testing
+# ================================
+coverage/
+.nyc_output/
+
+# ================================
+# Build output
+# ================================
+dist/
+build/
+
+# ================================
+# Runtime
+# ================================
+*.pid
+*.pid.lock
+
+# ================================
+# Miscellaneous
+# ================================
+.cache/
+.parcel-cache/
