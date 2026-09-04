@@ -1,0 +1,40 @@
+const prisma = require("../config/database");
+
+async function requireAuth(req, res, next) {
+    try {
+        if (!req.session.userId) {
+            return res.status(401).json({
+                error: "Authentication required"
+            });
+        }
+
+        const user = await prisma.user.findUnique({
+            where: {
+                id: req.session.userId
+            }
+        });
+
+        if (!user) {
+            req.session.destroy(() => {});
+
+            return res.status(401).json({
+                error: "User not found"
+            });
+        }
+
+        req.user = user;
+
+        next();
+
+    } catch (error) {
+        console.error("Authentication middleware error:", error);
+
+        return res.status(500).json({
+            error: "Authentication check failed"
+        });
+    }
+}
+
+module.exports = {
+    requireAuth
+};
